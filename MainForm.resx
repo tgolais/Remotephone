@@ -57,6 +57,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Fullscreen mode: ALT + f
+Rotate display left: ALT + (left)
+Rotate display right: ALT + (right)
+Resize window to pixel-perfect: ALT + g
+Home: ALT + h (or middle click)
+Back: ALT + b (or right click)
+Power on: (right click)
+Rotate screen: ALT + r
+Enable / disable fps counter: ALT + i
+Pinch to zoom: Ctrl + click and mouse move
+Turn screen off: ALT + o
+Turn screen on: ALT + SHIFT + o</value>
+  </data>
+  <data name="WifiConnectionInfo.Text" xml:space="preserve">
+    <value>You can connect over wifi only when your phone supports "Debbugging over WiFi" unless you need root or Magisk. Without SU permissions you can still connect your phone via wifi, but first you must provide USB connection, then you can enable TCP debbugging.</value>
+  </data>
   <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

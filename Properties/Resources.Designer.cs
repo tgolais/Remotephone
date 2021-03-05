@@ -89,5 +89,41 @@ namespace Remotephone.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] scrcpy {
+            get {
+                object obj = ResourceManager.GetObject("scrcpy", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Retail Branding,Marketing Name,Device,Model
+        ///,,AD681H,Smartfren Andromax AD681H
+        ///,,FJL21,FJL21
+        ///,,hws7721g,MediaPad 7 Youth 2
+        ///1&amp;1,1&amp;1 Puck,diw362_1u1,DIW362P 1U1
+        ///1&amp;1,1&amp;1 TV Box,diw387_1u1,DIW387 1U1
+        ///1&amp;1,DIW387-1&amp;1,diw387_1u1,DIW387 1U1
+        ///10.or,10or_G2,G2,10or G2
+        ///10.or,D,10or_D,D
+        ///10.or,E,E,E
+        ///10.or,G,G,G
+        ///10.or,G2,G2,G2
+        ///3222222 Satelital,G706,G706,G706
+        ///3BBTV,TBBTV01,TBBTV01,TBBTV01
+        ///3Go,GT10K3IPS,GT10K3IPS,GT10K3IPS
+        ///3Go,GT70053G,GT70053G,GT70053G
+        ///3Go,GT7007EQC,GT7007EQC,GT7007EQC
+        ///3Q,OC1020A,OC1020A, [obcięto pozostałą część ciągu]&quot;;.
+        /// </summary>
+        internal static string supported_devices {
+            get {
+                return ResourceManager.GetString("supported_devices", resourceCulture);
+            }
+        }
     }
 }

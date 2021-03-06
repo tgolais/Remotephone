@@ -26,6 +26,14 @@ namespace Remotephone
             return output;
         }
 
+        public static bool EnableTcpConnection(string deviceId = "")
+        {
+            var command = $"{(!String.IsNullOrEmpty(deviceId) ? $"-s {deviceId} " : String.Empty)}tcpip 5555";
+            var output = command.Execute(true, _adb, false);
+
+            return !output.Contains("adb.exe");
+        }
+
         public static int DeviceSdkLevel(string deviceId = "")
         {
             var output = _executor($"{(!String.IsNullOrEmpty(deviceId) ? $"-s {deviceId} " : String.Empty)}shell getprop ro.build.version.sdk", true, _adb).Replace("\r", "").Replace("\n", "").Replace(" ", "");
@@ -43,8 +51,11 @@ namespace Remotephone
             return Int32.TryParse(output, out int x);
         }
 
+        public static void KillAdb()
+            => "kill-server".Execute(true, _adb, false);
+
         public static List<string> ConnectedDevices()
-            => _executor("devices", true, _adb).Split('\n').Skip(1).Select(s => s.Replace("\r", null)).Select(s => s.TakeWhile(e => e != '\t').StringJoin(""))
+            => _executor("devices", true, _adb).Split('\n').Skip(1).Where(e => !e.Contains("offline")).Select(s => s.Replace("\r", null)).Select(s => s.TakeWhile(e => e != '\t').StringJoin(""))
             .Where(e => !String.IsNullOrWhiteSpace(e)).ToList();
 
         private static string AndroidVersion(int sdkLevel)
@@ -80,7 +91,8 @@ namespace Remotephone
                     Brand = phoneInfo?.Brand ?? "Unknown",
                     Name = phoneInfo?.Name ?? model,
                     Sdk = sdkLevel,
-                    Magisk = DeviceSuState(id)
+                    Magisk = DeviceSuState(id),
+                    AdbId = id
 
                 });
             });

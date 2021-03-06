@@ -45,25 +45,25 @@ namespace Remotephone
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.StreamBtn = new System.Windows.Forms.Button();
+            this.EnableTcpConnectionBtn = new System.Windows.Forms.Button();
             this.ConnectionSettingsGroup = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.AlwaysOnTopCheck = new System.Windows.Forms.CheckBox();
+            this.DisableScreensaverCheck = new System.Windows.Forms.CheckBox();
+            this.RenderDelayedFramesCheck = new System.Windows.Forms.CheckBox();
+            this.ShowTouchesCheck = new System.Windows.Forms.CheckBox();
+            this.KeepScreenOffCheck = new System.Windows.Forms.CheckBox();
+            this.PreventSleepingCheck = new System.Windows.Forms.CheckBox();
+            this.FpsBox = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.DisableControlsCheck = new System.Windows.Forms.CheckBox();
+            this.FullscreenCheck = new System.Windows.Forms.CheckBox();
+            this.HideWindowBordersCheck = new System.Windows.Forms.CheckBox();
+            this.EnableRecordingCheck = new System.Windows.Forms.CheckBox();
+            this.BitrateBox = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.WifiConnectionInfo = new System.Windows.Forms.TextBox();
@@ -71,16 +71,21 @@ namespace Remotephone
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.ActionsGroup = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.InstallDevDriversBtn = new System.Windows.Forms.Button();
+            this.KillAdbServerBtn = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.ConnectionSettingsGroup.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FpsBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BitrateBox)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.ActionsGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // AvailbleDevicesBox
@@ -235,23 +240,25 @@ namespace Remotephone
             this.label2.TabIndex = 1;
             this.label2.Text = "Device brand:";
             // 
-            // button1
+            // StreamBtn
             // 
-            this.button1.Location = new System.Drawing.Point(6, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(274, 37);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.StreamBtn.Location = new System.Drawing.Point(6, 22);
+            this.StreamBtn.Name = "StreamBtn";
+            this.StreamBtn.Size = new System.Drawing.Size(274, 37);
+            this.StreamBtn.TabIndex = 4;
+            this.StreamBtn.Text = "Stream";
+            this.StreamBtn.UseVisualStyleBackColor = true;
+            this.StreamBtn.Click += new System.EventHandler(this.StreamBtn_Click);
             // 
-            // button2
+            // EnableTcpConnectionBtn
             // 
-            this.button2.Location = new System.Drawing.Point(6, 65);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(274, 37);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.EnableTcpConnectionBtn.Location = new System.Drawing.Point(6, 65);
+            this.EnableTcpConnectionBtn.Name = "EnableTcpConnectionBtn";
+            this.EnableTcpConnectionBtn.Size = new System.Drawing.Size(274, 37);
+            this.EnableTcpConnectionBtn.TabIndex = 5;
+            this.EnableTcpConnectionBtn.Text = "Enable TCP Connection";
+            this.EnableTcpConnectionBtn.UseVisualStyleBackColor = true;
+            this.EnableTcpConnectionBtn.Click += new System.EventHandler(this.EnableTcpConnectionBtn_Click);
             // 
             // ConnectionSettingsGroup
             // 
@@ -287,19 +294,19 @@ namespace Remotephone
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.checkBox10);
-            this.groupBox6.Controls.Add(this.checkBox9);
-            this.groupBox6.Controls.Add(this.checkBox8);
-            this.groupBox6.Controls.Add(this.checkBox7);
-            this.groupBox6.Controls.Add(this.checkBox6);
-            this.groupBox6.Controls.Add(this.checkBox5);
-            this.groupBox6.Controls.Add(this.numericUpDown2);
+            this.groupBox6.Controls.Add(this.AlwaysOnTopCheck);
+            this.groupBox6.Controls.Add(this.DisableScreensaverCheck);
+            this.groupBox6.Controls.Add(this.RenderDelayedFramesCheck);
+            this.groupBox6.Controls.Add(this.ShowTouchesCheck);
+            this.groupBox6.Controls.Add(this.KeepScreenOffCheck);
+            this.groupBox6.Controls.Add(this.PreventSleepingCheck);
+            this.groupBox6.Controls.Add(this.FpsBox);
             this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.checkBox4);
-            this.groupBox6.Controls.Add(this.checkBox3);
-            this.groupBox6.Controls.Add(this.checkBox2);
-            this.groupBox6.Controls.Add(this.checkBox1);
-            this.groupBox6.Controls.Add(this.numericUpDown1);
+            this.groupBox6.Controls.Add(this.DisableControlsCheck);
+            this.groupBox6.Controls.Add(this.FullscreenCheck);
+            this.groupBox6.Controls.Add(this.HideWindowBordersCheck);
+            this.groupBox6.Controls.Add(this.EnableRecordingCheck);
+            this.groupBox6.Controls.Add(this.BitrateBox);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Location = new System.Drawing.Point(7, 172);
             this.groupBox6.Name = "groupBox6";
@@ -308,73 +315,79 @@ namespace Remotephone
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Display settings";
             // 
-            // checkBox10
+            // AlwaysOnTopCheck
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(227, 148);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(101, 19);
-            this.checkBox10.TabIndex = 13;
-            this.checkBox10.Text = "Always on top";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.AlwaysOnTopCheck.AutoSize = true;
+            this.AlwaysOnTopCheck.Location = new System.Drawing.Point(227, 149);
+            this.AlwaysOnTopCheck.Name = "AlwaysOnTopCheck";
+            this.AlwaysOnTopCheck.Size = new System.Drawing.Size(101, 19);
+            this.AlwaysOnTopCheck.TabIndex = 13;
+            this.AlwaysOnTopCheck.Text = "Always on top";
+            this.AlwaysOnTopCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
+            // DisableScreensaverCheck
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(7, 149);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(128, 19);
-            this.checkBox9.TabIndex = 12;
-            this.checkBox9.Text = "Disable screensaver";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.DisableScreensaverCheck.AutoSize = true;
+            this.DisableScreensaverCheck.Checked = true;
+            this.DisableScreensaverCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DisableScreensaverCheck.Location = new System.Drawing.Point(7, 149);
+            this.DisableScreensaverCheck.Name = "DisableScreensaverCheck";
+            this.DisableScreensaverCheck.Size = new System.Drawing.Size(128, 19);
+            this.DisableScreensaverCheck.TabIndex = 12;
+            this.DisableScreensaverCheck.Text = "Disable screensaver";
+            this.DisableScreensaverCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // RenderDelayedFramesCheck
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(227, 122);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(146, 19);
-            this.checkBox8.TabIndex = 11;
-            this.checkBox8.Text = "Render delayed frames";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.RenderDelayedFramesCheck.AutoSize = true;
+            this.RenderDelayedFramesCheck.Location = new System.Drawing.Point(227, 125);
+            this.RenderDelayedFramesCheck.Name = "RenderDelayedFramesCheck";
+            this.RenderDelayedFramesCheck.Size = new System.Drawing.Size(146, 19);
+            this.RenderDelayedFramesCheck.TabIndex = 11;
+            this.RenderDelayedFramesCheck.Text = "Render delayed frames";
+            this.RenderDelayedFramesCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // ShowTouchesCheck
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(227, 49);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(100, 19);
-            this.checkBox7.TabIndex = 10;
-            this.checkBox7.Text = "Show touches";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.ShowTouchesCheck.AutoSize = true;
+            this.ShowTouchesCheck.Location = new System.Drawing.Point(227, 49);
+            this.ShowTouchesCheck.Name = "ShowTouchesCheck";
+            this.ShowTouchesCheck.Size = new System.Drawing.Size(100, 19);
+            this.ShowTouchesCheck.TabIndex = 10;
+            this.ShowTouchesCheck.Text = "Show touches";
+            this.ShowTouchesCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // KeepScreenOffCheck
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(7, 98);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(107, 19);
-            this.checkBox6.TabIndex = 9;
-            this.checkBox6.Text = "Keep screen off";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.KeepScreenOffCheck.AutoSize = true;
+            this.KeepScreenOffCheck.Checked = true;
+            this.KeepScreenOffCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.KeepScreenOffCheck.Location = new System.Drawing.Point(7, 98);
+            this.KeepScreenOffCheck.Name = "KeepScreenOffCheck";
+            this.KeepScreenOffCheck.Size = new System.Drawing.Size(107, 19);
+            this.KeepScreenOffCheck.TabIndex = 9;
+            this.KeepScreenOffCheck.Text = "Keep screen off";
+            this.KeepScreenOffCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // PreventSleepingCheck
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(7, 48);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(113, 19);
-            this.checkBox5.TabIndex = 8;
-            this.checkBox5.Text = "Prevent sleeping";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.PreventSleepingCheck.AutoSize = true;
+            this.PreventSleepingCheck.Checked = true;
+            this.PreventSleepingCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PreventSleepingCheck.Location = new System.Drawing.Point(7, 48);
+            this.PreventSleepingCheck.Name = "PreventSleepingCheck";
+            this.PreventSleepingCheck.Size = new System.Drawing.Size(113, 19);
+            this.PreventSleepingCheck.TabIndex = 8;
+            this.PreventSleepingCheck.Text = "Prevent sleeping";
+            this.PreventSleepingCheck.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown2
+            // FpsBox
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(273, 20);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(76, 23);
-            this.numericUpDown2.TabIndex = 7;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.FpsBox.Location = new System.Drawing.Point(273, 20);
+            this.FpsBox.Name = "FpsBox";
+            this.FpsBox.Size = new System.Drawing.Size(76, 23);
+            this.FpsBox.TabIndex = 7;
+            this.FpsBox.Value = new decimal(new int[] {
             30,
             0,
             0,
@@ -389,53 +402,53 @@ namespace Remotephone
             this.label13.TabIndex = 6;
             this.label13.Text = "Framerate (FPS):";
             // 
-            // checkBox4
+            // DisableControlsCheck
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(227, 99);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(110, 19);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Disable controls";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.DisableControlsCheck.AutoSize = true;
+            this.DisableControlsCheck.Location = new System.Drawing.Point(227, 99);
+            this.DisableControlsCheck.Name = "DisableControlsCheck";
+            this.DisableControlsCheck.Size = new System.Drawing.Size(110, 19);
+            this.DisableControlsCheck.TabIndex = 5;
+            this.DisableControlsCheck.Text = "Disable controls";
+            this.DisableControlsCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // FullscreenCheck
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(227, 74);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(79, 19);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Fullscreen";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.FullscreenCheck.AutoSize = true;
+            this.FullscreenCheck.Location = new System.Drawing.Point(227, 74);
+            this.FullscreenCheck.Name = "FullscreenCheck";
+            this.FullscreenCheck.Size = new System.Drawing.Size(79, 19);
+            this.FullscreenCheck.TabIndex = 4;
+            this.FullscreenCheck.Text = "Fullscreen";
+            this.FullscreenCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // HideWindowBordersCheck
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(7, 123);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(139, 19);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Hide window borders";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.HideWindowBordersCheck.AutoSize = true;
+            this.HideWindowBordersCheck.Location = new System.Drawing.Point(7, 123);
+            this.HideWindowBordersCheck.Name = "HideWindowBordersCheck";
+            this.HideWindowBordersCheck.Size = new System.Drawing.Size(139, 19);
+            this.HideWindowBordersCheck.TabIndex = 3;
+            this.HideWindowBordersCheck.Text = "Hide window borders";
+            this.HideWindowBordersCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // EnableRecordingCheck
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 73);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(115, 19);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Enable recording";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.EnableRecordingCheck.AutoSize = true;
+            this.EnableRecordingCheck.Location = new System.Drawing.Point(7, 73);
+            this.EnableRecordingCheck.Name = "EnableRecordingCheck";
+            this.EnableRecordingCheck.Size = new System.Drawing.Size(181, 19);
+            this.EnableRecordingCheck.TabIndex = 2;
+            this.EnableRecordingCheck.Text = "Enable recording (My Videos)";
+            this.EnableRecordingCheck.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // BitrateBox
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(98, 20);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(70, 23);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.BitrateBox.Location = new System.Drawing.Point(98, 20);
+            this.BitrateBox.Name = "BitrateBox";
+            this.BitrateBox.Size = new System.Drawing.Size(70, 23);
+            this.BitrateBox.TabIndex = 1;
+            this.BitrateBox.Value = new decimal(new int[] {
             8,
             0,
             0,
@@ -504,30 +517,74 @@ namespace Remotephone
             // 
             // ActionsGroup
             // 
-            this.ActionsGroup.Controls.Add(this.button3);
-            this.ActionsGroup.Controls.Add(this.button2);
-            this.ActionsGroup.Controls.Add(this.button1);
+            this.ActionsGroup.Controls.Add(this.EnableTcpConnectionBtn);
+            this.ActionsGroup.Controls.Add(this.StreamBtn);
             this.ActionsGroup.Location = new System.Drawing.Point(708, 158);
             this.ActionsGroup.Name = "ActionsGroup";
-            this.ActionsGroup.Size = new System.Drawing.Size(288, 355);
+            this.ActionsGroup.Size = new System.Drawing.Size(288, 118);
             this.ActionsGroup.TabIndex = 7;
             this.ActionsGroup.TabStop = false;
             this.ActionsGroup.Text = "Actions";
             // 
-            // button3
+            // InstallDevDriversBtn
             // 
-            this.button3.Location = new System.Drawing.Point(6, 108);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(274, 37);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.InstallDevDriversBtn.Location = new System.Drawing.Point(714, 325);
+            this.InstallDevDriversBtn.Name = "InstallDevDriversBtn";
+            this.InstallDevDriversBtn.Size = new System.Drawing.Size(274, 37);
+            this.InstallDevDriversBtn.TabIndex = 6;
+            this.InstallDevDriversBtn.Text = "Install developer drivers";
+            this.InstallDevDriversBtn.UseVisualStyleBackColor = true;
+            this.InstallDevDriversBtn.Click += new System.EventHandler(this.InstallDevDriversBtn_Click);
+            // 
+            // KillAdbServerBtn
+            // 
+            this.KillAdbServerBtn.Location = new System.Drawing.Point(714, 282);
+            this.KillAdbServerBtn.Name = "KillAdbServerBtn";
+            this.KillAdbServerBtn.Size = new System.Drawing.Size(274, 37);
+            this.KillAdbServerBtn.TabIndex = 0;
+            this.KillAdbServerBtn.Text = "Restart engine";
+            this.KillAdbServerBtn.UseVisualStyleBackColor = true;
+            this.KillAdbServerBtn.Click += new System.EventHandler(this.KillAdbServerBtn_Click);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(621, 545);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(375, 15);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Project repository - https://github.com/EquablePanic4/Remotephone";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 546);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 15);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Author: Bartosz Miąskowski";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(714, 368);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(274, 145);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 546);
+            this.ClientSize = new System.Drawing.Size(1000, 565);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.KillAdbServerBtn);
+            this.Controls.Add(this.InstallDevDriversBtn);
             this.Controls.Add(this.ActionsGroup);
             this.Controls.Add(this.ConnectionSettingsGroup);
             this.Controls.Add(this.groupBox2);
@@ -545,12 +602,14 @@ namespace Remotephone
             this.groupBox7.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FpsBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BitrateBox)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ActionsGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -571,25 +630,25 @@ namespace Remotephone
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button StreamBtn;
+        private System.Windows.Forms.Button EnableTcpConnectionBtn;
         private System.Windows.Forms.GroupBox ConnectionSettingsGroup;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.CheckBox AlwaysOnTopCheck;
+        private System.Windows.Forms.CheckBox DisableScreensaverCheck;
+        private System.Windows.Forms.CheckBox RenderDelayedFramesCheck;
+        private System.Windows.Forms.CheckBox ShowTouchesCheck;
+        private System.Windows.Forms.CheckBox KeepScreenOffCheck;
+        private System.Windows.Forms.CheckBox PreventSleepingCheck;
+        private System.Windows.Forms.NumericUpDown FpsBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.CheckBox DisableControlsCheck;
+        private System.Windows.Forms.CheckBox FullscreenCheck;
+        private System.Windows.Forms.CheckBox HideWindowBordersCheck;
+        private System.Windows.Forms.CheckBox EnableRecordingCheck;
+        private System.Windows.Forms.NumericUpDown BitrateBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox WifiConnectionInfo;
@@ -597,7 +656,11 @@ namespace Remotephone
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox ActionsGroup;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button KillAdbServerBtn;
+        private System.Windows.Forms.Button InstallDevDriversBtn;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

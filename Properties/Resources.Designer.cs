@@ -125,5 +125,15 @@ namespace Remotephone.Properties {
                 return ResourceManager.GetString("supported_devices", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] Universal_ADB_Driver_v6_0 {
+            get {
+                object obj = ResourceManager.GetObject("Universal_ADB_Driver_v6_0", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

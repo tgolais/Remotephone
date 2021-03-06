@@ -10,7 +10,7 @@ namespace Remotephone
 {
     public static class Extensions
     {
-        public static string Execute(this string cmd, bool wait = true, string executable = "cmd.exe")
+        public static string Execute(this string cmd, bool wait = true, string executable = "cmd.exe", bool visible = false)
         {
             var process = new Process()
             {
@@ -20,8 +20,8 @@ namespace Remotephone
                     Arguments = cmd,
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
-                    CreateNoWindow = true,
-                    WindowStyle = ProcessWindowStyle.Hidden
+                    CreateNoWindow = !visible,
+                    WindowStyle = visible ? ProcessWindowStyle.Normal : ProcessWindowStyle.Hidden
                 }
             };
 

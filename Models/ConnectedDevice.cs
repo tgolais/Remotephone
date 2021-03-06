@@ -14,16 +14,17 @@ namespace Remotephone.Models
         public int Sdk { get; init; }
         public bool Magisk { get; init; }
         public string AdbId { get; set; }
+        public bool NetworkConnection { get; set; }
 
         public ConnectedDevice()
         {
 
         }
 
-        public ConnectedDevice(string name, string brand, string androidVersion, int sdk, bool magisk, string adbId)
-            => (Name, Brand, AndroidVersion, Sdk, Magisk, AdbId) = (name, brand, androidVersion, sdk, magisk, adbId);
+        public ConnectedDevice(string name, string brand, string androidVersion, int sdk, bool magisk, string adbId, bool overNetwork)
+            => (Name, Brand, AndroidVersion, Sdk, Magisk, AdbId, NetworkConnection) = (name, brand, androidVersion, sdk, magisk, adbId, overNetwork);
 
         public override string ToString()
-            => Name;
+            => $"{Name} [{(NetworkConnection ? "TCP" : "USB")}]";
     }
 }

@@ -50,7 +50,7 @@ namespace Remotephone
             this.ConnectionSettingsGroup = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.SettingsGroup = new System.Windows.Forms.GroupBox();
             this.AlwaysOnTopCheck = new System.Windows.Forms.CheckBox();
             this.DisableScreensaverCheck = new System.Windows.Forms.CheckBox();
             this.RenderDelayedFramesCheck = new System.Windows.Forms.CheckBox();
@@ -69,18 +69,18 @@ namespace Remotephone
             this.WifiConnectionInfo = new System.Windows.Forms.TextBox();
             this.WifiConnectBtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.IPBox = new System.Windows.Forms.TextBox();
             this.ActionsGroup = new System.Windows.Forms.GroupBox();
             this.InstallDevDriversBtn = new System.Windows.Forms.Button();
             this.KillAdbServerBtn = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.RepoUri = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.ConnectionSettingsGroup.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.SettingsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FpsBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BitrateBox)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -263,9 +263,8 @@ namespace Remotephone
             // ConnectionSettingsGroup
             // 
             this.ConnectionSettingsGroup.Controls.Add(this.groupBox7);
-            this.ConnectionSettingsGroup.Controls.Add(this.groupBox6);
+            this.ConnectionSettingsGroup.Controls.Add(this.SettingsGroup);
             this.ConnectionSettingsGroup.Controls.Add(this.groupBox5);
-            this.ConnectionSettingsGroup.Enabled = false;
             this.ConnectionSettingsGroup.Location = new System.Drawing.Point(218, 12);
             this.ConnectionSettingsGroup.Name = "ConnectionSettingsGroup";
             this.ConnectionSettingsGroup.Size = new System.Drawing.Size(484, 501);
@@ -292,28 +291,28 @@ namespace Remotephone
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
-            // groupBox6
+            // SettingsGroup
             // 
-            this.groupBox6.Controls.Add(this.AlwaysOnTopCheck);
-            this.groupBox6.Controls.Add(this.DisableScreensaverCheck);
-            this.groupBox6.Controls.Add(this.RenderDelayedFramesCheck);
-            this.groupBox6.Controls.Add(this.ShowTouchesCheck);
-            this.groupBox6.Controls.Add(this.KeepScreenOffCheck);
-            this.groupBox6.Controls.Add(this.PreventSleepingCheck);
-            this.groupBox6.Controls.Add(this.FpsBox);
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.DisableControlsCheck);
-            this.groupBox6.Controls.Add(this.FullscreenCheck);
-            this.groupBox6.Controls.Add(this.HideWindowBordersCheck);
-            this.groupBox6.Controls.Add(this.EnableRecordingCheck);
-            this.groupBox6.Controls.Add(this.BitrateBox);
-            this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Location = new System.Drawing.Point(7, 172);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(471, 176);
-            this.groupBox6.TabIndex = 1;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Display settings";
+            this.SettingsGroup.Controls.Add(this.AlwaysOnTopCheck);
+            this.SettingsGroup.Controls.Add(this.DisableScreensaverCheck);
+            this.SettingsGroup.Controls.Add(this.RenderDelayedFramesCheck);
+            this.SettingsGroup.Controls.Add(this.ShowTouchesCheck);
+            this.SettingsGroup.Controls.Add(this.KeepScreenOffCheck);
+            this.SettingsGroup.Controls.Add(this.PreventSleepingCheck);
+            this.SettingsGroup.Controls.Add(this.FpsBox);
+            this.SettingsGroup.Controls.Add(this.label13);
+            this.SettingsGroup.Controls.Add(this.DisableControlsCheck);
+            this.SettingsGroup.Controls.Add(this.FullscreenCheck);
+            this.SettingsGroup.Controls.Add(this.HideWindowBordersCheck);
+            this.SettingsGroup.Controls.Add(this.EnableRecordingCheck);
+            this.SettingsGroup.Controls.Add(this.BitrateBox);
+            this.SettingsGroup.Controls.Add(this.label12);
+            this.SettingsGroup.Location = new System.Drawing.Point(7, 172);
+            this.SettingsGroup.Name = "SettingsGroup";
+            this.SettingsGroup.Size = new System.Drawing.Size(471, 176);
+            this.SettingsGroup.TabIndex = 1;
+            this.SettingsGroup.TabStop = false;
+            this.SettingsGroup.Text = "Display settings";
             // 
             // AlwaysOnTopCheck
             // 
@@ -468,7 +467,7 @@ namespace Remotephone
             this.groupBox5.Controls.Add(this.WifiConnectionInfo);
             this.groupBox5.Controls.Add(this.WifiConnectBtn);
             this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.IPBox);
             this.groupBox5.Location = new System.Drawing.Point(7, 23);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(471, 143);
@@ -498,6 +497,7 @@ namespace Remotephone
             this.WifiConnectBtn.TabIndex = 2;
             this.WifiConnectBtn.Text = "Connect";
             this.WifiConnectBtn.UseVisualStyleBackColor = true;
+            this.WifiConnectBtn.Click += new System.EventHandler(this.WifiConnectBtn_Click);
             // 
             // label9
             // 
@@ -508,12 +508,12 @@ namespace Remotephone
             this.label9.TabIndex = 1;
             this.label9.Text = "IP Address:";
             // 
-            // textBox1
+            // IPBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(343, 23);
-            this.textBox1.TabIndex = 0;
+            this.IPBox.Location = new System.Drawing.Point(6, 39);
+            this.IPBox.Name = "IPBox";
+            this.IPBox.Size = new System.Drawing.Size(343, 23);
+            this.IPBox.TabIndex = 0;
             // 
             // ActionsGroup
             // 
@@ -546,15 +546,16 @@ namespace Remotephone
             this.KillAdbServerBtn.UseVisualStyleBackColor = true;
             this.KillAdbServerBtn.Click += new System.EventHandler(this.KillAdbServerBtn_Click);
             // 
-            // linkLabel1
+            // RepoUri
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(621, 545);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(375, 15);
-            this.linkLabel1.TabIndex = 8;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Project repository - https://github.com/EquablePanic4/Remotephone";
+            this.RepoUri.AutoSize = true;
+            this.RepoUri.Location = new System.Drawing.Point(621, 545);
+            this.RepoUri.Name = "RepoUri";
+            this.RepoUri.Size = new System.Drawing.Size(375, 15);
+            this.RepoUri.TabIndex = 8;
+            this.RepoUri.TabStop = true;
+            this.RepoUri.Text = "Project repository - https://github.com/EquablePanic4/Remotephone";
+            this.RepoUri.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RepoUri_LinkClicked);
             // 
             // label5
             // 
@@ -582,7 +583,7 @@ namespace Remotephone
             this.ClientSize = new System.Drawing.Size(1000, 565);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.RepoUri);
             this.Controls.Add(this.KillAdbServerBtn);
             this.Controls.Add(this.InstallDevDriversBtn);
             this.Controls.Add(this.ActionsGroup);
@@ -600,8 +601,8 @@ namespace Remotephone
             this.groupBox2.PerformLayout();
             this.ConnectionSettingsGroup.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.SettingsGroup.ResumeLayout(false);
+            this.SettingsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FpsBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BitrateBox)).EndInit();
             this.groupBox5.ResumeLayout(false);
@@ -635,7 +636,7 @@ namespace Remotephone
         private System.Windows.Forms.GroupBox ConnectionSettingsGroup;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox SettingsGroup;
         private System.Windows.Forms.CheckBox AlwaysOnTopCheck;
         private System.Windows.Forms.CheckBox DisableScreensaverCheck;
         private System.Windows.Forms.CheckBox RenderDelayedFramesCheck;
@@ -654,11 +655,11 @@ namespace Remotephone
         private System.Windows.Forms.TextBox WifiConnectionInfo;
         private System.Windows.Forms.Button WifiConnectBtn;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox IPBox;
         private System.Windows.Forms.GroupBox ActionsGroup;
         private System.Windows.Forms.Button KillAdbServerBtn;
         private System.Windows.Forms.Button InstallDevDriversBtn;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel RepoUri;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

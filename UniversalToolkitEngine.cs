@@ -34,6 +34,14 @@ namespace Remotephone
             return !output.Contains("adb.exe");
         }
 
+        public static bool DisableTcpConnection(string deviceId = "")
+        {
+            var command = $"{(!String.IsNullOrEmpty(deviceId) ? $"-s {deviceId} " : String.Empty)}usb";
+            var output = command.Execute(true, _adb, false);
+
+            return output.Contains("restarting");
+        }
+
         public static int DeviceSdkLevel(string deviceId = "")
         {
             var output = _executor($"{(!String.IsNullOrEmpty(deviceId) ? $"-s {deviceId} " : String.Empty)}shell getprop ro.build.version.sdk", true, _adb).Replace("\r", "").Replace("\n", "").Replace(" ", "");
@@ -49,6 +57,12 @@ namespace Remotephone
             var rawOutput = _executor(computedCommand, true, _adb);
             var output = rawOutput.Replace("\r", "").Replace("\n", "").Replace(" ", "");
             return Int32.TryParse(output, out int x);
+        }
+
+        public static bool ConnectOverTcpIp(string ipAddress)
+        {
+            var output = $"connect {ipAddress}".Execute(true, _adb, false);
+            return !output.Contains("adb.exe") && !output.Contains("cannot");
         }
 
         public static void KillAdb()
@@ -92,8 +106,8 @@ namespace Remotephone
                     Name = phoneInfo?.Name ?? model,
                     Sdk = sdkLevel,
                     Magisk = DeviceSuState(id),
-                    AdbId = id
-
+                    AdbId = id,
+                    NetworkConnection = id.Contains(".")
                 });
             });
 

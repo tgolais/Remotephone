@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -47,7 +48,7 @@ namespace Remotephone
             Progress.Maximum = 100;
 
             //Disabling initial disabled boxes
-            //DisableActionGroups();
+            DisableActionGroups();
 
             //Earsing mockup data
             SetPhoneInfo();
@@ -80,13 +81,13 @@ namespace Remotephone
         private void DisableActionGroups()
         {
             ActionsGroup.EasyInvoke(() => ActionsGroup.Enabled = false);
-            ConnectionSettingsGroup.EasyInvoke(() => ConnectionSettingsGroup.Enabled = false);
+            SettingsGroup.EasyInvoke(() => SettingsGroup.Enabled = false);
         }
 
         private void EnableActionGroups()
         {
             ActionsGroup.EasyInvoke(() => ActionsGroup.Enabled = true);
-            ConnectionSettingsGroup.EasyInvoke(() => ConnectionSettingsGroup.Enabled = true);
+            SettingsGroup.EasyInvoke(() => SettingsGroup.Enabled = true);
         }
 
         private void SetPhoneInfo(ConnectedDevice device)
@@ -125,7 +126,15 @@ namespace Remotephone
         private void AvailbleDevicesBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (AvailbleDevicesBox.SelectedIndex >= 0)
-                SetActiveDevice(AvailbleDevicesBox.SelectedItem as ConnectedDevice);
+            {
+                var active = AvailbleDevicesBox.SelectedItem as ConnectedDevice;
+                SetActiveDevice(active);
+
+                if (active.NetworkConnection)
+                    EnableTcpConnectionBtn.Text = "Disable TCP Connection";
+                else
+                    EnableTcpConnectionBtn.Text = "Enable TCP Connection";
+            }
         }
 
         private void InstallDevDriversBtn_Click(object sender, EventArgs e)
@@ -171,6 +180,15 @@ namespace Remotephone
                 {
                     EnableActionGroups();
                     SetProgress(100);
+
+                    AvailbleDevicesBox.EasyInvoke(() =>
+                    {
+                        if (AvailbleDevicesBox.SelectedIndex < 0)
+                        {
+                            DisableActionGroups();
+                            SetPhoneInfo();
+                        }
+                    });
                 }
             }).Start();
         }
@@ -214,18 +232,29 @@ namespace Remotephone
                 if (selectedPhone is null)
                     throw new NullReferenceException("Couldn't load selected device data");
 
+                Func<string, bool> func = null;
+                if (EnableTcpConnectionBtn.Text.Contains("Enable"))
+                    func = UniversalToolkitEngine.EnableTcpConnection;
+                else
+                    func = UniversalToolkitEngine.DisableTcpConnection;
+
                 new Thread(() =>
                 {
-                    if (UniversalToolkitEngine.EnableTcpConnection(selectedPhone.AdbId))
+                    if (func(selectedPhone.AdbId))
                     {
                         SetProgress(100);
-                        MessageBox.Show("Now you can connect device within it's IP Address, device is listening on port 5555", "Enabled TCP Connection");
+                        MessageBox.Show("Operation has been performed successfully", "Success");
+
+                        EnableTcpConnectionBtn.EasyInvoke(() =>
+                        {
+                            RefreshDeviceBtn_Click(null, null);
+                        });
                     }
 
                     else
                     {
                         SetProgress(100);
-                        MessageBox.Show("An error occured while attempting to start TCP listening on port 5555", "Error");
+                        MessageBox.Show("An error occured while attempting to perform operation", "Error");
                     }
                 }).Start();
             }
@@ -251,9 +280,45 @@ namespace Remotephone
                 UniversalToolkitEngine.KillAdb();
                 EnableActionGroups();
                 SetProgress(100);
-            });
+
+                RefreshDeviceBtn_Click(null, null);
+            }).Start();
         }
 
+        private void WifiConnectBtn_Click(object sender, EventArgs e)
+        {
+            var ipAddress = IPBox.Text;
+            if (String.IsNullOrWhiteSpace(ipAddress))
+            {
+                MessageBox.Show("You must provide valid IP Address!", "Error");
+                return;
+            }
+
+            SetProgress(10);
+
+            new Thread(() =>
+            {
+                var result = UniversalToolkitEngine.ConnectOverTcpIp(ipAddress);
+                if (result)
+                {
+                    RefreshDeviceBtn_Click(null, null);
+                    MessageBox.Show($"Successfully connected with {ipAddress}");
+                }
+
+                else
+                {
+                    MessageBox.Show("An error occured while attempting to connect device via TCP connection", "Error");
+                    SetProgress(0);
+                }
+            }).Start();
+        }
+
+        private void RepoUri_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RepoUri.LinkVisited = true;
+
+            Process.Start(new ProcessStartInfo("cmd", $"/c start https://github.com/EquablePanic4/Remotephone") { CreateNoWindow = true });
+        }
         #endregion
 
         #region Engine methods

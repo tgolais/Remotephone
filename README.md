@@ -41,7 +41,7 @@ dotnet --version
 * Realtime Android screen mirroring
 * Interacting with host OS
 * Recording screen
-* Flexible framerate and bandwith
+* Flexible framerate and bandwidth
 * Connecting multiple Android devices
 * Screen mirroring even if device's screen is off
 * Easy network connection (no root required)

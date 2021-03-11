@@ -86,12 +86,12 @@ dotnet publish -r win-arm -p:PublishSingleFile=true --self-contained false
 ```
 
 ## Troubleshooting
-* **My device isn't availble** - This trouble may be caused by missing specific device drivers. At the beginning
+* **My device isn't available** - This trouble may be caused by missing specific device drivers. At the beginning
 please try download correct drivers from manufacturer website. If it won't help, you will need to switch driver
 in Windows Device Manager to something like "Adb composite interface"
 * **I cannot find recorded screen files** - screen recordings automaticly are stored in current user "My Videos" directory.
 * **FPS manipulation doesn't work** - Try to use this feature when device is connected via USB cord - it should increase
-connection performance and reduce latency. This feature is only availble for devices with Android 10+.
+connection performance and reduce latency. This feature is only available for devices with Android 10+.
 * **I cannot connect via IP Address** - you should look for "Debugging over wifi" in device's developer settings, if there's no setting like this
 you must download app like 'Adb over wifi' from Google Play Store - but you must be rooted, if you aren't, you must connect your phone via USB cord, then
 use option "Enable TCP Connection" in Remotephone.

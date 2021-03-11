@@ -30,7 +30,7 @@ namespace Remotephone
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.AvailbleDevicesBox = new System.Windows.Forms.ListBox();
+            this.AvailableDevicesBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RefreshDeviceBtn = new System.Windows.Forms.Button();
             this.Progress = new System.Windows.Forms.ProgressBar();
@@ -88,26 +88,26 @@ namespace Remotephone
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // AvailbleDevicesBox
+            // AvailableDevicesBox
             // 
-            this.AvailbleDevicesBox.FormattingEnabled = true;
-            this.AvailbleDevicesBox.ItemHeight = 15;
-            this.AvailbleDevicesBox.Location = new System.Drawing.Point(6, 22);
-            this.AvailbleDevicesBox.Name = "AvailbleDevicesBox";
-            this.AvailbleDevicesBox.Size = new System.Drawing.Size(195, 454);
-            this.AvailbleDevicesBox.TabIndex = 0;
-            this.AvailbleDevicesBox.SelectedIndexChanged += new System.EventHandler(this.AvailbleDevicesBox_SelectedIndexChanged);
+            this.AvailableDevicesBox.FormattingEnabled = true;
+            this.AvailableDevicesBox.ItemHeight = 15;
+            this.AvailableDevicesBox.Location = new System.Drawing.Point(6, 22);
+            this.AvailableDevicesBox.Name = "AvailableDevicesBox";
+            this.AvailableDevicesBox.Size = new System.Drawing.Size(195, 454);
+            this.AvailableDevicesBox.TabIndex = 0;
+            this.AvailableDevicesBox.SelectedIndexChanged += new System.EventHandler(this.AvailableDevicesBox_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.RefreshDeviceBtn);
-            this.groupBox1.Controls.Add(this.AvailbleDevicesBox);
+            this.groupBox1.Controls.Add(this.AvailableDevicesBox);
             this.groupBox1.Location = new System.Drawing.Point(5, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(207, 531);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Availble devices";
+            this.groupBox1.Text = "Available devices";
             // 
             // RefreshDeviceBtn
             // 
@@ -617,7 +617,7 @@ namespace Remotephone
 
         #endregion
 
-        private System.Windows.Forms.ListBox AvailbleDevicesBox;
+        private System.Windows.Forms.ListBox AvailableDevicesBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button RefreshDeviceBtn;
         private System.Windows.Forms.ProgressBar Progress;

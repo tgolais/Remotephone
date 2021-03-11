@@ -102,7 +102,7 @@ namespace Remotephone
             AccessLevelInfoLabel.EasyInvoke(() =>
             {
                 if (su is not null)
-                    AccessLevelInfoLabel.Text = (bool)su ? "Availble" : "Not availble or denied";
+                    AccessLevelInfoLabel.Text = (bool)su ? "Available" : "Not available or denied";
                 else
                     AccessLevelInfoLabel.Text = String.Empty;
             });
@@ -123,11 +123,11 @@ namespace Remotephone
 
         #region UI Event Handlers
 
-        private void AvailbleDevicesBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void AvailableDevicesBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (AvailbleDevicesBox.SelectedIndex >= 0)
+            if (AvailableDevicesBox.SelectedIndex >= 0)
             {
-                var active = AvailbleDevicesBox.SelectedItem as ConnectedDevice;
+                var active = AvailableDevicesBox.SelectedItem as ConnectedDevice;
                 SetActiveDevice(active);
 
                 if (active.NetworkConnection)
@@ -162,12 +162,12 @@ namespace Remotephone
                     var devices = UniversalToolkitEngine.ConnectedDevicesDetails();
                     SetProgress(80);
 
-                    AvailbleDevicesBox.EasyInvoke(() =>
+                    AvailableDevicesBox.EasyInvoke(() =>
                     {
                         if (devices?.Any() ?? false)
-                            AvailbleDevicesBox.DataSource = devices;
+                            AvailableDevicesBox.DataSource = devices;
                         else
-                            AvailbleDevicesBox.DataSource = new List<ConnectedDevice>();
+                            AvailableDevicesBox.DataSource = new List<ConnectedDevice>();
                     });
                 }
 
@@ -181,9 +181,9 @@ namespace Remotephone
                     EnableActionGroups();
                     SetProgress(100);
 
-                    AvailbleDevicesBox.EasyInvoke(() =>
+                    AvailableDevicesBox.EasyInvoke(() =>
                     {
-                        if (AvailbleDevicesBox.SelectedIndex < 0)
+                        if (AvailableDevicesBox.SelectedIndex < 0)
                         {
                             DisableActionGroups();
                             SetPhoneInfo();
@@ -228,7 +228,7 @@ namespace Remotephone
             SetProgress(10);
             try
             {
-                var selectedPhone = AvailbleDevicesBox.SelectedItem as ConnectedDevice;
+                var selectedPhone = AvailableDevicesBox.SelectedItem as ConnectedDevice;
                 if (selectedPhone is null)
                     throw new NullReferenceException("Couldn't load selected device data");
 
@@ -330,7 +330,7 @@ namespace Remotephone
         private string BuildQuery()
         {
             var str = new List<string>();
-            var selectedDevice = AvailbleDevicesBox.SelectedItem as ConnectedDevice;
+            var selectedDevice = AvailableDevicesBox.SelectedItem as ConnectedDevice;
             if (selectedDevice is null)
                 throw new NullReferenceException("Couldn't load selected phone data");
 
